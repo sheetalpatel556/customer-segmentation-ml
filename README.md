@@ -6,6 +6,9 @@ A machine learning project that segments customers based on their purchasing beh
 
 **[Try the Live Application](https://customer-segmentation-ml-kfu7.onrender.com)**
 
+### Application Screenshot
+![Customer Segmentation Demo](customer-segmentation-demo.png.png)
+
 ## Project Overview
 
 Understanding customer behavior helps businesses improve customer retention, personalize marketing campaigns, and identify high-value customers. This project applies unsupervised machine learning to group customers using their purchase history.
