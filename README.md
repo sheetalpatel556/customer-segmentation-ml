@@ -1,55 +1,83 @@
 # Customer Segmentation Using Machine Learning
 
-A machine learning project that segments customers based on their purchasing behaviour using **RFM Analysis and K-Means Clustering**.
+A machine learning project that segments customers based on their purchasing behavior using **RFM Analysis** and **K-Means Clustering**. The project provides a Flask web application that predicts customer segments and suggests suitable marketing strategies.
 
 ## Live Demo
-[Try the Customer Segmentation App](https://customer-segmentation-ml-kfu7.onrender.com)
+
+**[Try the Live Application](https://customer-segmentation-ml-kfu7.onrender.com)**
 
 ## Project Overview
-This project analyses customer transactions and groups customers into meaningful segments. Businesses can use these insights to improve customer retention, marketing strategies, and loyalty programs.
 
-## RFM Analysis
-Three metrics are used to understand customer behaviour:
+Understanding customer behavior helps businesses improve customer retention, personalize marketing campaigns, and identify high-value customers. This project applies unsupervised machine learning to group customers using their purchase history.
 
-- **Recency:** Number of days since the customer's last purchase.
-- **Frequency:** Number of unique orders placed by the customer.
-- **Monetary:** Total amount spent by the customer.
+## Key Features
 
-## Machine Learning Workflow
-1. Load and clean the Online Retail dataset.
-2. Handle missing values, duplicate records, cancelled orders, and invalid transactions.
-3. Calculate customer-level RFM metrics.
-4. Apply log transformation and feature scaling.
-5. Train a K-Means clustering model with two clusters.
-6. Save the trained model and scaler.
-7. Deploy the prediction app using Flask and Render.
-
-## Customer Segments
-- **Loyal / High-Value:** Customers showing stronger engagement and higher spending.
-- **At-Risk / Low-Engagement:** Customers showing lower engagement and spending.
-
-These labels are based on the characteristics of the resulting clusters.
+- Customer segmentation using K-Means clustering.
+- RFM feature engineering: Recency, Frequency, and Monetary value.
+- Log transformation and feature scaling before prediction.
+- Flask-based web interface for customer segment prediction.
+- Marketing recommendations based on the predicted segment.
+- Deployment on Render.
 
 ## Technologies Used
-- Python
-- Pandas and NumPy
-- Scikit-learn
-- Flask
-- Joblib
-- GitHub
-- Render
+
+- **Language:** Python
+- **Machine Learning:** Scikit-learn, K-Means Clustering
+- **Data Processing:** NumPy, Pandas
+- **Web Framework:** Flask
+- **Model Persistence:** Joblib
+- **Deployment:** Render
+- **Version Control:** GitHub
 
 ## Dataset
-[UCI Online Retail Dataset](https://archive.ics.uci.edu/dataset/352/online+retail)
+
+The project uses the **Online Retail** dataset from the UCI Machine Learning Repository.
+
+[Dataset Source — UCI Machine Learning Repository](https://archive.ics.uci.edu/dataset/352/online+retail)
+
+The dataset contains online retail transactions, including customer IDs, invoice dates, quantities, unit prices, and countries.
+
+## Methodology
+
+1. **Data Cleaning:** Removed duplicate records, missing customer IDs, cancelled invoices, and invalid transaction prices.
+2. **RFM Analysis:** Calculated:
+   - **Recency:** Days since the customer's most recent purchase.
+   - **Frequency:** Number of distinct orders.
+   - **Monetary:** Total customer spending.
+3. **Preprocessing:** Applied `log1p` transformation and `StandardScaler`.
+4. **Model Training:** Trained a K-Means model with two customer segments.
+5. **Deployment:** Integrated the saved model and scaler into a Flask application and deployed it on Render.
+
+## Customer Segments
+
+### 1. Loyal / High-Value
+Customers who generally purchase more recently, place more orders, and spend more.
+
+**Suggested strategy:** Loyalty rewards and personalized product recommendations.
+
+### 2. At-Risk / Low-Engagement
+Customers who generally purchase less frequently, have longer gaps since their last purchase, and spend less.
+
+**Suggested strategy:** Targeted re-engagement campaigns and relevant offers.
+
+*Note: These segments are based on the patterns learned by the clustering model and are not guaranteed labels for every individual customer.*
 
 ## Run Locally
-Install the required libraries:
+
+Clone the repository:
+
+```bash
+git clone https://github.com/sheetalpatel556/customer-segmentation-ml.git
+cd customer-segmentation-ml
+```
+
+Install dependencies:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-Start the Flask application:
+Run the Flask application:
 
 ```bash
 python app.py
@@ -57,16 +85,26 @@ python app.py
 
 Open `http://127.0.0.1:5000` in your browser.
 
-## Project Files
-- `app.py` — Flask web application
-- `final_model.pkl` — Trained K-Means model
-- `rfm_scaler.pkl` — Feature scaler
-- `requirements.txt` — Python dependencies
+## Project Structure
+
+```text
+customer-segmentation-ml/
+├── app.py
+├── final_model.pkl
+├── rfm_scaler.pkl
+├── requirements.txt
+└── README.md
+```
 
 ## Future Improvements
-- Interactive customer segment visualisations
-- More detailed customer segments
-- Automated marketing recommendations
 
----
-Developed as a Machine Learning project.
+- Add interactive customer-segment visualizations.
+- Provide batch predictions through CSV uploads.
+- Improve customer profiles and segment-level analytics.
+- Add model evaluation and monitoring.
+
+## Author
+
+**Sheetal Patel**
+
+GitHub: [@sheetalpatel556](https://github.com/sheetalpatel556)
